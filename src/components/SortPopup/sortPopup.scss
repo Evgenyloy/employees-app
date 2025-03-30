@@ -1,0 +1,111 @@
+.sort-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.sort-popup {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 320px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &__close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #999;
+        line-height: 1;
+
+        &:hover {
+            color: #333;
+        }
+    }
+
+    &__options {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    &__option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        font-size: 16px;
+
+        input {
+            display: none;
+
+            &:checked+.sort-popup__radio-custom {
+                border-color: #3369F3;
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__radio-custom {
+        width: 18px;
+        height: 18px;
+        border: 2px solid #E5E5E5;
+        border-radius: 50%;
+        position: relative;
+        transition: all 0.2s;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 8px;
+            height: 8px;
+            background: #3369F3;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+    }
+
+    &__apply {
+        width: 100%;
+        padding: 12px;
+        background: #3369F3;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+            background: #2A5BDA;
+        }
+    }
+}

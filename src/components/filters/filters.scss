@@ -1,0 +1,24 @@
+.filters {
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid rgb(231, 231, 231);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    &__item {
+        padding: 5px;
+        color: rgb(151, 151, 155);
+        font-size: 15px;
+        font-weight: 500;
+        transition: color .1s linear;
+        cursor: pointer;
+
+        &:hover {
+            color: rgb(5, 5, 16);
+        }
+    }
+
+    &__item-active {
+        color: rgb(5, 5, 16);
+    }
+}

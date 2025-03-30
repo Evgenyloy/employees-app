@@ -1,6 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IEmployee } from "../types/types";
 
+const error = "__code=500&__dynamic=true";
+const all = "__example=all";
+
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
@@ -23,4 +26,4 @@ export const apiSlice = createApi({
   }),
 });
 
-export const { useGetEmployeesQuery } = apiSlice;
+export const { useGetEmployeesQuery, useLazyGetEmployeesQuery } = apiSlice;

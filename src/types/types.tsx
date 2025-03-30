@@ -8,4 +8,5 @@ export interface IEmployee {
   phone: string;
   position: string;
   userTag: string;
+  filtered: boolean;
 }

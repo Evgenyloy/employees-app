@@ -1,0 +1,50 @@
+.employee {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__info {
+
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    &__wrapper {}
+
+    &__name {
+        color: rgb(5, 5, 16);
+        font-weight: 500;
+        line-height: 20px;
+    }
+
+    &__user-tag {
+        color: rgb(151, 151, 155);
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    &__name-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 3px;
+    }
+
+    &__department {
+        color: rgb(85, 85, 92);
+        font-size: 13px;
+
+    }
+
+    &__img {
+        border-radius: 50px;
+    }
+
+    &__birthday {
+        color: rgb(85, 85, 92);
+        font-family: Inter;
+        font-size: 15px;
+    }
+}
