@@ -1,0 +1,22 @@
+.error-search {
+    padding-top: 200px;
+    text-align: center;
+
+    &__image {
+        margin-bottom: 10px;
+    }
+
+    &__title {
+        color: rgb(5, 5, 16);
+        font-family: Inter;
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 22px;
+        margin-bottom: 12px;
+    }
+
+    &__text {
+        color: rgb(151, 151, 155);
+        font-size: 16px;
+    }
+}

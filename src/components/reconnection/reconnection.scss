@@ -1,0 +1,26 @@
+.reconnection {
+
+    color: #fff;
+    padding: 20px;
+
+    &__title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+        margin-bottom: 20px;
+    }
+
+
+    &__text {
+        font-size: 13px;
+        font-weight: 500;
+    }
+}
+
+.reconnection.reconnection-online {
+    background: rgb(101, 52, 255);
+}
+
+.reconnection.reconnection-offline {
+    background: rgb(244, 67, 54);
+}

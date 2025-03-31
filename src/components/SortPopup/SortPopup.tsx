@@ -1,16 +1,22 @@
 import { useState } from "react";
-import "./sortPopup.scss";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { setPopUpIsOpen } from "../../slices/slice";
+import { setPopUpIsOpen, setPopUpSort } from "../../slices/slice";
+import "./sortPopup.scss";
 
 function SortPopup() {
   const dispatch = useAppDispatch();
   const popUpIsOpen = useAppSelector((state) => state.employees.popUpIsOpen);
   const [selectedSort, setSelectedSort] = useState("");
 
-  const handleClosePopUp = () => {
+  function handleSelectSort(e: React.ChangeEvent<HTMLInputElement>) {
+    setSelectedSort(e.target.value);
+    dispatch(setPopUpSort(e.target.value));
     dispatch(setPopUpIsOpen(false));
-  };
+  }
+
+  function handleClosePopUp() {
+    dispatch(setPopUpIsOpen(false));
+  }
 
   if (!popUpIsOpen) return null;
 
@@ -35,7 +41,7 @@ function SortPopup() {
               name="sort"
               value="alphabetical"
               checked={selectedSort === "alphabetical"}
-              onChange={() => setSelectedSort("alphabetical")}
+              onChange={handleSelectSort}
             />
             <span className="sort-popup__radio-custom"></span>
             По алфавиту
@@ -47,7 +53,7 @@ function SortPopup() {
               name="sort"
               value="birthday"
               checked={selectedSort === "birthday"}
-              onChange={() => setSelectedSort("birthday")}
+              onChange={handleSelectSort}
             />
             <span className="sort-popup__radio-custom"></span>
             По дню рождения

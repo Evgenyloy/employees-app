@@ -1,10 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IEmployee } from "../types/types";
 
-const initialState = {
+interface EmployeesState {
+  tabs: string;
+  input: string;
+  popUpIsOpen: boolean;
+  popUpSort: string;
+  employeeProfile: IEmployee | null; // Явно указываем тип
+}
+
+const initialState: EmployeesState = {
   tabs: "Все",
   input: "",
   popUpIsOpen: false,
-  popUpFilter: "",
+  popUpSort: "",
+  employeeProfile: null,
 };
 
 const slice = createSlice({
@@ -20,12 +30,21 @@ const slice = createSlice({
     setPopUpIsOpen: (state, actions: PayloadAction<boolean>) => {
       state.popUpIsOpen = actions.payload;
     },
-    setPopUpFilter: (state, action: PayloadAction<string>) => {
-      state.popUpFilter = action.payload;
+    setPopUpSort: (state, action: PayloadAction<string>) => {
+      state.popUpSort = action.payload;
+    },
+    setEmployeeProfile: (state, action: PayloadAction<IEmployee>) => {
+      state.employeeProfile = action.payload;
     },
   },
 });
 
 const { reducer, actions } = slice;
-export const { setTab, setInput, setPopUpIsOpen, setPopUpFilter } = actions;
+export const {
+  setTab,
+  setInput,
+  setPopUpIsOpen,
+  setPopUpSort,
+  setEmployeeProfile,
+} = actions;
 export default reducer;

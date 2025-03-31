@@ -1,9 +1,9 @@
 import { FiSearch } from "react-icons/fi";
 import { LuMenu } from "react-icons/lu";
 import { useState } from "react";
-import "./search.scss";
 import { useAppDispatch } from "../../hooks/hooks";
 import { setInput, setPopUpIsOpen } from "../../slices/slice";
+import "./search.scss";
 
 function Search() {
   const [value, setValue] = useState("");
@@ -24,7 +24,7 @@ function Search() {
         <input
           className="search__input"
           type="text"
-          placeholder="Введи имя, фамилию или инициалы."
+          placeholder="Введите имя, фамилию или инициалы."
           value={value}
           onChange={handleInputChange}
         />

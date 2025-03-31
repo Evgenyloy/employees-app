@@ -1,0 +1,104 @@
+.profile {
+
+
+    &__top {
+        position: relative;
+        padding-top: 60px;
+        padding-bottom: 20px;
+        background: rgb(247, 247, 248);
+    }
+
+    &__back {
+        cursor: pointer;
+        padding: 5px;
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        transition: transform .1s linear;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    &__image {
+        display: block;
+        margin: 0 auto;
+        width: 104px;
+        height: 104px;
+        border-radius: 50px;
+        margin-bottom: 24px;
+    }
+
+
+    &__name-wrapper {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+        margin-bottom: 12px;
+    }
+
+
+    &__firstName,
+    &__lastName {
+        color: rgb(5, 5, 16);
+        font-family: Inter;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+    }
+
+
+    &__tag {
+        color: rgb(151, 151, 155);
+        font-size: 17px;
+    }
+
+
+    &__department {
+        display: block;
+        text-align: center;
+        color: rgb(85, 85, 92);
+        font-size: 14px;
+    }
+
+
+    &__bottom {
+        padding-top: 20px;
+        padding-inline: 15px;
+    }
+
+
+    &__birthday-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+
+
+    &__phone,
+    &__birthday {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: rgb(5, 5, 16);
+        font-weight: 500;
+    }
+
+    &__svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    &__years {
+        color: rgb(151, 151, 155);
+        font-weight: 500;
+    }
+
+
+}
