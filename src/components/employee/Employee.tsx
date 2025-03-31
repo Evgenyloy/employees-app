@@ -1,15 +1,10 @@
-import { IEmployee } from "../../types/types";
 import anonym from "../../image/anonym.png";
+import { EmployeeProps } from "../../types/types";
 import { formatDate } from "../../utils/utils";
 import { Link } from "react-router-dom";
-import "./employee.scss";
 import { useAppDispatch } from "../../hooks/hooks";
 import { setEmployeeProfile } from "../../slices/slice";
-
-type EmployeeProps = {
-  filtered: boolean;
-  employee: IEmployee;
-};
+import "./employee.scss";
 
 function Employee({ employee, filtered }: EmployeeProps) {
   const formattedDateBirthday = formatDate(employee.birthday);
@@ -19,7 +14,7 @@ function Employee({ employee, filtered }: EmployeeProps) {
   }
 
   return (
-    <div className="employee" key={employee.id}>
+    <div className="employee">
       <div className="employee__info">
         <img
           className="employee__img"

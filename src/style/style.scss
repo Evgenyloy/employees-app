@@ -1,5 +1,8 @@
 @use './reset.scss';
+@use './theme.scss';
 
 body {
-    background: rgb(229, 229, 229);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }

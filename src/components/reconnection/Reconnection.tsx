@@ -5,8 +5,6 @@ interface IReconnectionProps {
 }
 
 function Reconnection({ isOnline }: IReconnectionProps) {
-  console.log(isOnline);
-
   return (
     <div
       className={

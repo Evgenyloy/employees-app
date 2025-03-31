@@ -6,14 +6,14 @@
     .year-divider {
         position: relative;
         margin: 16px 0;
-        border-top: 1px solid #eaeaea;
+        border-top: 1px solid var(--line-color);
 
         .year-label {
             position: absolute;
             top: -8px;
             transform: translateX(-50%);
             left: 50%;
-            background: white;
+            background: var(--app-color);
             padding: 0 8px;
             color: #888;
             font-size: 14px;

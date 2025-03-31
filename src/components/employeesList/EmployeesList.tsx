@@ -1,27 +1,16 @@
 import { useGetEmployeesQuery } from "../../api/apiSlice";
 import EmployeeItem from "../employee/Employee";
-import { IEmployee } from "../../types/types";
 import SkeletonGroup from "../skeleton/Skeleton";
 import Error from "../error/Error";
 import { useAppSelector } from "../../hooks/hooks";
 import SearchError from "../searchError/SearchError";
 import "./employeesList.scss";
-
-function groupEmployeesByYear(employees: IEmployee[]) {
-  const grouped: { [year: string]: IEmployee[] } = {};
-
-  employees?.forEach((employee) => {
-    const year = employee.birthday.split("-")[0];
-
-    if (!grouped[year]) {
-      grouped[year] = [];
-    }
-
-    grouped[year].push(employee);
-  });
-
-  return grouped;
-}
+import {
+  filterBySearch,
+  filterByTab,
+  groupEmployeesByYear,
+  sortEmployees,
+} from "./employeesListUtils";
 
 function EmployeesList() {
   const {
@@ -35,46 +24,6 @@ function EmployeesList() {
   const activeTabFilter = useAppSelector((state) => state.employees.tabs);
   const searchFilter = useAppSelector((state) => state.employees.input);
   const sortFilter = useAppSelector((state) => state.employees.popUpSort);
-
-  function filterByTab(employees: IEmployee[], filter: string) {
-    if (!employees) return [];
-    if (filter === "Все") return employees;
-    return employees.filter((item) => item.department === filter);
-  }
-  function filterBySearch(employees: IEmployee[], filter: string) {
-    return employees.filter(
-      (item) =>
-        item.firstName.toLowerCase().startsWith(filter.toLowerCase()) ||
-        item.lastName.toLowerCase().startsWith(filter.toLowerCase()) ||
-        item.userTag.toLowerCase().startsWith(filter.toLowerCase())
-    );
-  }
-
-  function sortEmployees(employees: IEmployee[], filter: string): IEmployee[] {
-    const sorted = [...employees];
-
-    switch (filter) {
-      case "alphabetical":
-        return sorted.sort((a, b) => {
-          if (a.firstName > b.firstName) {
-            return 1;
-          }
-          if (a.firstName < b.firstName) {
-            return -1;
-          }
-          return 0;
-        });
-
-      case "birthday":
-        return sorted.sort(
-          (a, b) =>
-            new Date(a.birthday).getTime() - new Date(b.birthday).getTime()
-        );
-
-      default:
-        return sorted;
-    }
-  }
 
   const sortedEmployees = sortEmployees(employees, sortFilter);
   const filteredEmployees = filterByTab(
@@ -95,7 +44,11 @@ function EmployeesList() {
       {isSuccess &&
         sortFilter !== "birthday" &&
         filteredEmployees.map((employee) => (
-          <EmployeeItem filtered={false} employee={employee} />
+          <EmployeeItem
+            key={employee.id}
+            filtered={false}
+            employee={employee}
+          />
         ))}
       {isSuccess &&
         sortFilter === "birthday" &&
@@ -105,7 +58,11 @@ function EmployeesList() {
               <span className="year-label">{year}</span>
             </div>
             {groupedEmployees[year].map((employee) => (
-              <EmployeeItem filtered={true} employee={employee} />
+              <EmployeeItem
+                key={employee.id}
+                filtered={true}
+                employee={employee}
+              />
             ))}
           </div>
         ))}

@@ -3,6 +3,7 @@ import { LuMenu } from "react-icons/lu";
 import { useState } from "react";
 import { useAppDispatch } from "../../hooks/hooks";
 import { setInput, setPopUpIsOpen } from "../../slices/slice";
+import ThemeToggle from "../themeToggle/ThemeToggle";
 import "./search.scss";
 
 function Search() {
@@ -13,12 +14,17 @@ function Search() {
     setValue(e.target.value);
     dispatch(setInput(e.target.value));
   }
+
   const handleOpenPopUp = () => {
     dispatch(setPopUpIsOpen(true));
   };
+
   return (
     <div className="search">
-      <h1 className="search__title">Поиск</h1>
+      <div className="search__title-wrapper">
+        <h1 className="search__title">Поиск</h1>
+        <ThemeToggle />
+      </div>
       <div className="search__input-wrapper">
         <FiSearch className="search__svg" />
         <input

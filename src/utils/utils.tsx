@@ -16,7 +16,6 @@ export function calculateAge(birthday: string | undefined) {
   let age = today.getFullYear() - birthDate.getFullYear();
   const monthDiff = today.getMonth() - birthDate.getMonth();
 
-  // Проверяем, был ли уже день рождения в этом году
   if (
     monthDiff < 0 ||
     (monthDiff === 0 && today.getDate() < birthDate.getDate())
@@ -24,7 +23,6 @@ export function calculateAge(birthday: string | undefined) {
     age--;
   }
 
-  // Определяем правильное окончание
   const lastDigit = age % 10;
   const lastTwoDigits = age % 100;
 
@@ -42,4 +40,37 @@ export function calculateAge(birthday: string | undefined) {
     default:
       return `${age} лет`;
   }
+}
+
+export function formatBirthday(dateString: string) {
+  if (!dateString) return;
+  const months = [
+    "января",
+    "февраля",
+    "марта",
+    "апреля",
+    "мая",
+    "июня",
+    "июля",
+    "августа",
+    "сентября",
+    "октября",
+    "ноября",
+    "декабря",
+  ];
+
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+
+  return `${day} ${month} ${year}`;
+}
+
+export function formatPhoneWithRegex(phone: string) {
+  if (!phone) return;
+  return phone.replace(
+    /^(\+7|8)(\d{3})(\d{3})(\d{2})(\d{2})$/,
+    "+7 ($2) $3 $4 $5"
+  );
 }

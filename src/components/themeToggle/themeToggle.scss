@@ -1,0 +1,18 @@
+.theme-toggle {
+    padding-right: 5px;
+    border: none;
+    transform: scale(1.5);
+    background-color: var(--app-color);
+}
+
+.theme-moon {
+    color: rgb(104, 160, 233);
+    width: 15px;
+    height: 15px;
+}
+
+.theme-sun {
+    color: rgb(248, 192, 8);
+    width: 20px;
+    height: 20px;
+}

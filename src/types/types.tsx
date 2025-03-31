@@ -10,3 +10,8 @@ export interface IEmployee {
   userTag: string;
   filtered: boolean;
 }
+
+export type EmployeeProps = {
+  filtered: boolean;
+  employee: IEmployee;
+};

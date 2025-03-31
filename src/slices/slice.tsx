@@ -6,7 +6,7 @@ interface EmployeesState {
   input: string;
   popUpIsOpen: boolean;
   popUpSort: string;
-  employeeProfile: IEmployee | null; // Явно указываем тип
+  employeeProfile: IEmployee | null;
 }
 
 const initialState: EmployeesState = {

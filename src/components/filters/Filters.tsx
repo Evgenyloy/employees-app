@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { useAppSelector, useAppDispatch } from "../../hooks/hooks";
 import { setTab } from "../../slices/slice";
 import "./filters.scss";

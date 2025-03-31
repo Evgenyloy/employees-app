@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
+import { useGetEmployeesQuery } from "../api/apiSlice";
 
 export function useNetworkStatus() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const { refetch } = useGetEmployeesQuery(null);
 
   useEffect(() => {
-    const handleOnline = () => setIsOnline(true);
-    const handleOffline = () => setIsOnline(false);
+    const handleOnline = () => {
+      setIsOnline(true);
+      refetch();
+    };
+    const handleOffline = () => {
+      setIsOnline(false);
+    };
 
     window.addEventListener("online", handleOnline);
     window.addEventListener("offline", handleOffline);

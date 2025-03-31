@@ -7,7 +7,8 @@ const all = "__example=all";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://stoplight.io",
+    baseUrl:
+      "https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464",
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -17,8 +18,9 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getEmployees: builder.query<IEmployee[], unknown>({
       query: () => ({
-        url: `/mocks/kode-frontend-team/koder-stoplight/86566464/users?__example=all`,
+        url: `/users?__example=all`,
       }),
+      keepUnusedDataFor: 300,
       transformResponse: (response: any) => {
         return [...response.items];
       },

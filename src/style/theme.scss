@@ -1,0 +1,27 @@
+:root {
+    --bg-color: rgb(229, 229, 229);
+    --app-color: #ffffff;
+    --text-main-color: rgb(5, 5, 16);
+    --text-second-color: rgb(151, 151, 155);
+    --filter-underline-color: rgb(128, 92, 228);
+    --line-color: #eaeaea;
+    --hover-employee: #f1f1f1;
+    --employee-top: rgb(247, 247, 248);
+    --svg-hover-color: #292929;
+    --skeleton-color: #f0f0f0;
+
+}
+
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --app-color: #292929;
+    --text-main-color: rgb(248, 248, 248);
+    --text-second-color: rgb(172, 172, 172);
+    --filter-underline-color: rgb(231, 19, 19);
+    --line-color: #888;
+    --hover-employee: #3b3b3b;
+    --employee-top: rgb(61, 61, 61);
+    --svg-hover-color: #1a1a1a;
+    --skeleton-color: #969696;
+}
